@@ -24,4 +24,5 @@ cav-api-*.tar
 
 /assets/
 .vscode
+.elixir_ls
 

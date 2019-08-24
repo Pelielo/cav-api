@@ -7,12 +7,23 @@
 # General application configuration
 use Mix.Config
 
+import System, only: [get_env: 1]
+
 config :cav,
   ecto_repos: [Cav.Repo]
 
+# Configure your database
+config :cav, Cav.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "postgres",
+  hostname: get_env("DATABASE_HOST") || "localhost",
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # Configures the endpoint
 config :cav, CavWeb.Endpoint,
-  url: [host: "db"],
+  url: [host: "localhost"],
   secret_key_base: "SMVfkma2Fc3g7eYyWZVl5HBX210D+PKl3oSkDVBk37bqhj6q5cG2zrEqBAkOdJH3",
   render_errors: [view: CavWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Cav.PubSub, adapter: Phoenix.PubSub.PG2]
