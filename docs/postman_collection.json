@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "87ac6811-5984-4286-825b-c8c05d2e77af",
+		"name": "Volanty",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch CAV list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4000/cav",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"cav"
+					]
+				},
+				"description": "Returns the list of all CAVs"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch available hours",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4000/cav/1?procedure=visit&date=2019-07-17",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"cav",
+						"1"
+					],
+					"query": [
+						{
+							"key": "procedure",
+							"value": "visit"
+						},
+						{
+							"key": "date",
+							"value": "2019-07-17"
+						}
+					]
+				},
+				"description": "Returns the available visiting or inspection hours for a specific CAV"
+			},
+			"response": []
+		},
+		{
+			"name": "Schedule inspection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date\": \"2019-08-24\",\n\t\"hour\": 10,\n\t\"car_id\": 1\n}"
+				},
+				"url": {
+					"raw": "localhost:4000/cav/1/inspection",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"cav",
+						"1",
+						"inspection"
+					]
+				},
+				"description": "Schedules an inspection in the given CAV"
+			},
+			"response": []
+		},
+		{
+			"name": "Schedule visit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date\": \"2019-08-24\",\n\t\"hour\": 17,\n\t\"car_id\": 3\n}"
+				},
+				"url": {
+					"raw": "localhost:4000/cav/2/visit",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"cav",
+						"2",
+						"visit"
+					]
+				},
+				"description": "Schedules a visit in the given CAV"
+			},
+			"response": []
+		}
+	]
+}
