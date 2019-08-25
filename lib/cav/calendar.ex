@@ -1,6 +1,5 @@
 defmodule Cav.Calendar do
     use Ecto.Schema
-    alias Cav.Schedule
 
     import Ecto.Changeset
 
