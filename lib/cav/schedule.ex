@@ -10,7 +10,7 @@ defmodule Cav.Schedule do
     def changeset(schema \\ %__MODULE__{}, params) do
         schema
         |> cast(params, [:hour])
-        |> validate_inclusion(:hour, Enum.to_list(0..23))
+        |> validate_inclusion(:hour, [10, 11, 12, 13, 14, 15, 16, 17])
     end
 
 end
