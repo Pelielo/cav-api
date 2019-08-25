@@ -13,20 +13,13 @@ defmodule Cav do
     Repo.all(Cav)
   end
 
-  def get_available_hours(cav_id, procedure_date, procedure_type) do
-    innerquery = from(c in Calendar,
+  def get_scheduled_hours(cav_id, procedure_date, procedure_type) do
+    query = from(c in Calendar,
       where: field(c, :cav_id) == ^cav_id
         and field(c, :procedure_date) == ^procedure_date
         and field(c, :procedure_type) == ^procedure_type,
       select: %{
-        schedule_id: c.schedule_id
-      })
-
-    query = from(s in Schedule,
-      left_join: c in subquery(innerquery), on: s.id == c.schedule_id,
-      where: field(c, :schedule_id) |> is_nil,
-      select: %{
-        hour: s.hour
+        hour: c.hour
       })
 
     Repo.all(query)

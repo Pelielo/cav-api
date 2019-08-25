@@ -15,43 +15,34 @@ defmodule Cav.Repo.Migrations.InsertData do
     %Car{brand: "Fiat", model: "Palio"} |> Repo.insert()
     %Car{brand: "VW", model: "Up"} |> Repo.insert()
 
-    %{hour: 10} |> Schedule.changeset() |> Repo.insert()
-    %{hour: 11} |> Schedule.changeset() |> Repo.insert()
-    %{hour: 12} |> Schedule.changeset() |> Repo.insert()
-    %{hour: 13} |> Schedule.changeset() |> Repo.insert()
-    %{hour: 14} |> Schedule.changeset() |> Repo.insert()
-    %{hour: 15} |> Schedule.changeset() |> Repo.insert()
-    %{hour: 16} |> Schedule.changeset() |> Repo.insert()
-    %{hour: 17} |> Schedule.changeset() |> Repo.insert()
-
-    %{cav_id: 1, car_id: 1, schedule_id: 2,
+    %{cav_id: 1, car_id: 1, hour: 11,
     procedure_date: ~D[2019-07-17], procedure_type: "visit"}
     |> Calendar.changeset() |> Repo.insert()
-    %{cav_id: 1, car_id: 6, schedule_id: 5,
+    %{cav_id: 1, car_id: 6, hour: 14,
     procedure_date: ~D[2019-07-17], procedure_type: "visit"}
     |> Calendar.changeset() |> Repo.insert()
-    %{cav_id: 1, car_id: 6, schedule_id: 2,
+    %{cav_id: 1, car_id: 6, hour: 11,
     procedure_date: ~D[2019-07-17], procedure_type: "inspection"}
     |> Calendar.changeset() |> Repo.insert()
-    %{cav_id: 2, car_id: 3, schedule_id: 2,
+    %{cav_id: 2, car_id: 3, hour: 11,
     procedure_date: ~D[2019-07-17], procedure_type: "visit"}
     |> Calendar.changeset() |> Repo.insert()
-    %{cav_id: 2, car_id: 3, schedule_id: 1,
+    %{cav_id: 2, car_id: 3, hour: 10,
     procedure_date: ~D[2019-07-17], procedure_type: "inspection"}
     |> Calendar.changeset() |> Repo.insert()
-    %{cav_id: 2, car_id: 4, schedule_id: 2,
+    %{cav_id: 2, car_id: 4, hour: 11,
     procedure_date: ~D[2019-07-17], procedure_type: "inspection"}
     |> Calendar.changeset() |> Repo.insert()
-    %{cav_id: 2, car_id: 5, schedule_id: 3,
+    %{cav_id: 2, car_id: 5, hour: 12,
     procedure_date: ~D[2019-07-17], procedure_type: "inspection"}
     |> Calendar.changeset() |> Repo.insert()
-    %{cav_id: 3, car_id: 2, schedule_id: 2,
+    %{cav_id: 3, car_id: 2, hour: 11,
     procedure_date: ~D[2019-07-17], procedure_type: "inspection"}
     |> Calendar.changeset() |> Repo.insert()
-    %{cav_id: 3, car_id: 2, schedule_id: 1,
+    %{cav_id: 3, car_id: 2, hour: 10,
     procedure_date: ~D[2019-07-18], procedure_type: "visit"}
     |> Calendar.changeset() |> Repo.insert()
-    %{cav_id: 3, car_id: 2, schedule_id: 5,
+    %{cav_id: 3, car_id: 2, hour: 14,
     procedure_date: ~D[2019-07-18], procedure_type: "visit"}
     |> Calendar.changeset() |> Repo.insert()
   end

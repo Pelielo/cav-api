@@ -14,9 +14,13 @@ defmodule CavWeb.Router do
   end
 
   scope "/", CavWeb do
-    pipe_through :browser
+    pipe_through :api
 
     get "/", PageController, :index
+    resources("/cav", CavController) do
+      resources "/visit", VisitController
+      resources "/inspection", InspectionController
+    end
   end
 
   # Other scopes may use custom stacks.
